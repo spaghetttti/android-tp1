@@ -21,26 +21,30 @@
         android:id="@+id/editText3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Type something here" />
+        android:inputType="number"
+        android:digits="0123456789+"
+        android:hint="Âge" />
 
     <EditText
         android:id="@+id/editText4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Type something here" />
+        android:hint="Domaine de compétences" />
 
     <EditText
         android:id="@+id/editText5"
+        android:inputType="phone"
+        android:digits="0123456789+"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Type something here" />
+        android:hint="Numéro de téléphone" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Show Text" />
+        android:text="Validate and Show Result" />
 
     <TextView
         android:id="@+id/textView"
