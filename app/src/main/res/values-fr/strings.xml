@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Mon Application</string>
+    <string name="hint_first_name">Nom</string>
+    <string name="hint_last_name">Prenom</string>
+    <string name="hint_age">Âge</string>
+    <string name="hint_domain">Domaine</string>
+    <string name="hint_phone_number">Numéro de téléphone</string>
+    <string name="button_validate">Valider et afficher le résultat</string>
+    <string name="error_fill_field">Veuillez remplir tous les champs</string>
+    <string name="error_field">Veuillez entrer les informations dans le champ : %1$s</string>
+    <string name="switch_language">Changer de langue 🇬🇧</string>
+    <string name="validate_and_show_result">Valider et montrer le résultat</string>
+    <string name="your_text_will_appear_here">Votre texte apparaîtra ici</string>
+    <string name="please_enter_info">Veuillez entrer des informations dans le champ: %1$s</string>
+</resources>

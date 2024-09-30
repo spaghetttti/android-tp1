@@ -5,52 +5,54 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button_switch_language"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Nom" />
+        android:layout_marginTop="16dp"
+        android:text="@string/switch_language" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/firstName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Prenom" />
+        android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
         android:digits="0123456789+"
-        android:hint="Âge" />
+        android:inputType="number" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/areaOfExpertise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/phoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Domaine de compétences" />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:inputType="phone"
         android:digits="0123456789+"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Numéro de téléphone" />
+        android:inputType="phone" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/validateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Validate and Show Result" />
+        android:text="@string/validate_and_show_result" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/resultView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your text will appear here"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:text="@string/your_text_will_appear_here" />
 
 </LinearLayout>

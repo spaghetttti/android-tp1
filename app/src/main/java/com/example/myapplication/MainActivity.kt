@@ -1,90 +1,85 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.myapplication.databinding.ActivityMainBinding
-import com.example.myapplication.ui.theme.MyApplicationTheme
+import java.util.Locale
 
 
 class MainActivity : ComponentActivity() {
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-//        setContentView(R.layout.activity_main)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.button.setOnClickListener {
-            val typedText = "${binding.editText.text} ${binding.editText2.text} ${binding.editText3.text} ${binding.editText4.text} ${binding.editText5.text}"
-            binding.textView.text = typedText
+        setEditTextHints()
+
+        binding.buttonSwitchLanguage.setOnClickListener {
+            val currentLocale = resources.configuration.locales[0].language
+            val newLocale = if (currentLocale == "fr") "en" else "fr"
+
+            val config = resources.configuration
+            val locale = Locale(newLocale)
+            Locale.setDefault(locale)
+            config.setLocale(locale)
+            resources.updateConfiguration(config, resources.displayMetrics)
+
+            // Restart activity to apply changes
+            recreate()
         }
 
-
-        binding.button.setOnClickListener {
-            if (validateInputs().isEmpty()) {
+        binding.validateButton.setOnClickListener {
+            val validationMessage = validateInputs()
+            if (validationMessage.isEmpty()) {
                 val typedText = gatherInput()
                 displayResult(typedText)
             } else {
-                Toast.makeText(this, "Please fill in all fields\n" + validateInputs(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill in all fields\n$validationMessage", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
 
+    private fun setEditTextHints() {
+        binding.firstName.hint = getString(R.string.hint_last_name)
+        binding.lastName.hint = getString(R.string.hint_first_name)
+        binding.age.hint = getString(R.string.hint_age)
+        binding.areaOfExpertise.hint = getString(R.string.hint_domain)
+        binding.phoneNumber.hint = getString(R.string.hint_phone_number)
+    }
     private fun gatherInput(): String {
-        return "${binding.editText.text} ${binding.editText2.text} ${binding.editText3.text} ${binding.editText4.text} ${binding.editText5.text}"
+        return listOf(
+            binding.firstName.text.toString(),
+            binding.lastName.text.toString(),
+            binding.age.text.toString(),
+            binding.areaOfExpertise.text.toString(),
+            binding.phoneNumber.text.toString()
+        ).joinToString(" ")
     }
 
     private fun displayResult(result: String) {
-        binding.textView.text = result
+        binding.resultView.text = result
     }
 
     private fun validateInputs(): String {
-        if (binding.editText.text.isBlank()) {
-            return "please enter info into field: " + binding.editText.hint.toString()
-        }
-        if (binding.editText2.text.isBlank()) {
-            return "please enter info into field: " + binding.editText2.hint.toString()
-        }
-        if (binding.editText3.text.isBlank()) {
-            return "please enter info into field: " + binding.editText3.hint.toString()
-        }
-        if (binding.editText4.text.isBlank()) {
-            return "please enter info into field: " + binding.editText4.hint.toString()
-        }
-        if (binding.editText5.text.isBlank()) {
-            return "please enter info into field: " + binding.editText5.hint.toString()
-        }
-        return "";
-    }
+        val fields = listOf(
+            binding.firstName to getString(R.string.hint_last_name),
+            binding.lastName to getString(R.string.hint_first_name),
+            binding.age to getString(R.string.hint_age),
+            binding.areaOfExpertise to getString(R.string.hint_domain),
+            binding.phoneNumber to getString(R.string.hint_phone_number)
+        )
 
-
-}
-
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyApplicationTheme {
-        Greeting("Android test")
+        for ((editText, hint) in fields) {
+            if (editText.text.isBlank()) {
+                return getString(R.string.please_enter_info, hint)
+            }
+        }
+        return ""
     }
 }
