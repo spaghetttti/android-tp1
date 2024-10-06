@@ -16,4 +16,6 @@
     <string name="confirmation_message">Êtes-vous sûr de vouloir soumettre ?</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
+    <string name="title_activity_display_data">DisplayDataActivity</string>
+    <string name="title_activity_third">ThirdActivity</string>
 </resources>

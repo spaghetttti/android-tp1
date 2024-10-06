@@ -2,12 +2,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textViewThirdActivity"
+    <ImageView
+        android:id="@+id/imageViewPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Third Activity Content"
-        android:textSize="24sp"/>
+        android:src="@drawable/phone"
+        android:contentDescription="phone_image"/>
+    <TextView
+        android:id="@+id/textViewPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone Number"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call"
+        android:layout_marginTop="16dp"/>
 </LinearLayout>

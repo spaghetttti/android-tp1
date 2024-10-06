@@ -31,10 +31,12 @@ class DisplayDataActivity : ComponentActivity() {
 
         // Set button listeners
         binding.buttonOk.setOnClickListener {
-            // Launch a third activity
+            // Launch a third activity with the phone number
             val intent = Intent(this, ThirdActivity::class.java)
+            intent.putExtra("phone", phone)
             startActivity(intent)
         }
+
 
         binding.buttonBack.setOnClickListener {
             // Go back to the previous activity
