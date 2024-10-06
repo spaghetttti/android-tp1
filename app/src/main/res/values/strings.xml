@@ -12,4 +12,9 @@
     <string name="validate_and_show_result">Validate and Show Result</string>
     <string name="your_text_will_appear_here">Your text will appear here</string>
     <string name="please_enter_info">Please enter info into field: %1$s</string>
+    <string name="confirmation_title">Submit Confirmation</string>
+    <string name="confirmation_message">Are you sure you want to submit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="title_activity_display_data">DisplayDataActivity</string>
 </resources>

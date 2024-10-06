@@ -5,8 +5,8 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.Locale
-
 
 class MainActivity : ComponentActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -37,8 +37,8 @@ class MainActivity : ComponentActivity() {
         binding.validateButton.setOnClickListener {
             val validationMessage = validateInputs()
             if (validationMessage.isEmpty()) {
-                val typedText = gatherInput()
-                displayResult(typedText)
+                // Show confirmation dialog if inputs are valid
+                showConfirmationDialog()
             } else {
                 Toast.makeText(this, "Please fill in all fields\n$validationMessage", Toast.LENGTH_SHORT).show()
             }
@@ -52,6 +52,7 @@ class MainActivity : ComponentActivity() {
         binding.areaOfExpertise.hint = getString(R.string.hint_domain)
         binding.phoneNumber.hint = getString(R.string.hint_phone_number)
     }
+
     private fun gatherInput(): String {
         return listOf(
             binding.firstName.text.toString(),
@@ -81,5 +82,22 @@ class MainActivity : ComponentActivity() {
             }
         }
         return ""
+    }
+
+    private fun showConfirmationDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(getString(R.string.confirmation_title))
+            .setMessage(getString(R.string.confirmation_message))
+            .setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+                // User clicked "Yes", gather input and display result
+                val typedText = gatherInput()
+                displayResult(typedText)
+                dialog.dismiss()
+            }
+            .setNegativeButton(getString(R.string.no)) { dialog, _ ->
+                // User clicked "No", dismiss the dialog
+                dialog.dismiss()
+            }
+            .show()
     }
 }

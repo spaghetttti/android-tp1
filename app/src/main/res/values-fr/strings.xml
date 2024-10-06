@@ -12,4 +12,8 @@
     <string name="validate_and_show_result">Valider et montrer le résultat</string>
     <string name="your_text_will_appear_here">Votre texte apparaîtra ici</string>
     <string name="please_enter_info">Veuillez entrer des informations dans le champ: %1$s</string>
+    <string name="confirmation_title">Confirmation d\'envoi</string>
+    <string name="confirmation_message">Êtes-vous sûr de vouloir soumettre ?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
 </resources>
