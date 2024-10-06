@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Departure City Input -->
+    <EditText
+        android:id="@+id/editTextDepartureCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Departure City"
+        android:inputType="text" />
+
+    <!-- Arrival City Input -->
+    <EditText
+        android:id="@+id/editTextArrivalCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Arrival City"
+        android:inputType="text" />
+
+    <!-- Search Button -->
+    <Button
+        android:id="@+id/buttonSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search" />
+
+    <!-- RecyclerView to display train schedules -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSchedules"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

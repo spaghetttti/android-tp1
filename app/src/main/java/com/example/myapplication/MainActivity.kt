@@ -33,6 +33,13 @@ class MainActivity : ComponentActivity() {
                 Toast.makeText(this, "Please fill in all fields\n$validationMessage", Toast.LENGTH_SHORT).show()
             }
         }
+
+        // Train Schedules Button
+        binding.buttonTrainSchedules.setOnClickListener {
+            // Create an Intent to start TrainSchedulesActivity
+            val intent = Intent(this, TrainSchedulesActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setEditTextHints() {

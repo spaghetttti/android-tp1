@@ -54,5 +54,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/your_text_will_appear_here" />
+    <Button
+        android:id="@+id/button_train_schedules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="View Train Schedules" />
 
 </LinearLayout>

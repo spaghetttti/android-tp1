@@ -18,4 +18,5 @@
     <string name="no">No</string>
     <string name="title_activity_display_data">DisplayDataActivity</string>
     <string name="title_activity_third">ThirdActivity</string>
+    <string name="title_activity_train_schedules">TrainSchedulesActivity</string>
 </resources>
