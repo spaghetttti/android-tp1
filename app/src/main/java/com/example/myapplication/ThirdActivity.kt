@@ -16,11 +16,9 @@ class ThirdActivity : ComponentActivity() {
         binding = ActivityThirdBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Get the phone number from the intent
         phoneNumber = intent.getStringExtra("phone")
         binding.textViewPhoneNumber.text = phoneNumber
 
-        // Set onClickListener for the call button
         binding.buttonCall.setOnClickListener {
             if (!phoneNumber.isNullOrEmpty()) {
                 makePhoneCall(phoneNumber!!)

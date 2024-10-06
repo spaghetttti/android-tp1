@@ -48,17 +48,18 @@
         android:layout_marginTop="16dp"
         android:text="@string/validate_and_show_result" />
 
-    <TextView
-        android:id="@+id/resultView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/your_text_will_appear_here" />
     <Button
         android:id="@+id/button_train_schedules"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="View Train Schedules" />
+
+    <Button
+        android:id="@+id/button_open_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open Calendar" />
+
 
 </LinearLayout>

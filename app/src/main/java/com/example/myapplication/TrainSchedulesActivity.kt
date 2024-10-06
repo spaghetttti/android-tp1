@@ -14,18 +14,14 @@ class TrainSchedulesActivity : ComponentActivity() {
         binding = ActivityTrainSchedulesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set up RecyclerView for train schedules
         setupRecyclerView()
 
-        // Handle search button click
         binding.buttonSearch.setOnClickListener {
             val departureCity = binding.editTextDepartureCity.text.toString()
             val arrivalCity = binding.editTextArrivalCity.text.toString()
 
             if (departureCity.isBlank() || arrivalCity.isBlank()) {
-                // Show error if fields are empty
             } else {
-                // Simulate train schedule search
                 val schedules = getMockSchedules(departureCity, arrivalCity)
                 adapter.submitList(schedules)
             }
@@ -39,7 +35,6 @@ class TrainSchedulesActivity : ComponentActivity() {
     }
 
     private fun getMockSchedules(departure: String, arrival: String): List<Schedule> {
-        // Mock schedule data
         return listOf(
             Schedule("$departure to $arrival", "08:00 AM"),
             Schedule("$departure to $arrival", "10:30 AM"),

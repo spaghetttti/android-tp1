@@ -19,4 +19,5 @@
     <string name="title_activity_display_data">DisplayDataActivity</string>
     <string name="title_activity_third">ThirdActivity</string>
     <string name="title_activity_train_schedules">TrainSchedulesActivity</string>
+    <string name="title_activity_calendar">CalendarActivity</string>
 </resources>

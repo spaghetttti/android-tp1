@@ -34,12 +34,16 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        // Train Schedules Button
         binding.buttonTrainSchedules.setOnClickListener {
-            // Create an Intent to start TrainSchedulesActivity
             val intent = Intent(this, TrainSchedulesActivity::class.java)
             startActivity(intent)
         }
+
+        binding.buttonOpenCalendar.setOnClickListener {
+            val intent = Intent(this, CalendarActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun setEditTextHints() {
@@ -48,16 +52,6 @@ class MainActivity : ComponentActivity() {
         binding.age.hint = getString(R.string.hint_age)
         binding.areaOfExpertise.hint = getString(R.string.hint_domain)
         binding.phoneNumber.hint = getString(R.string.hint_phone_number)
-    }
-
-    private fun gatherInput(): String {
-        return listOf(
-            binding.firstName.text.toString(),
-            binding.lastName.text.toString(),
-            binding.age.text.toString(),
-            binding.areaOfExpertise.text.toString(),
-            binding.phoneNumber.text.toString()
-        ).joinToString(" ")
     }
 
     private fun validateInputs(): String {
@@ -105,7 +99,6 @@ class MainActivity : ComponentActivity() {
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
 
-        // Restart activity to apply changes
         recreate()
     }
 }
