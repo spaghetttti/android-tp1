@@ -1,47 +1,44 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.myapplication.ui.theme.MyApplicationTheme
+import com.example.myapplication.databinding.ActivityDisplayDataBinding
 
 class DisplayDataActivity : ComponentActivity() {
+    private lateinit var binding: ActivityDisplayDataBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            MyApplicationTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+        binding = ActivityDisplayDataBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Retrieve data from the intent
+        val firstName = intent.getStringExtra("firstName")
+        val lastName = intent.getStringExtra("lastName")
+        val age = intent.getStringExtra("age")
+        val expertise = intent.getStringExtra("expertise")
+        val phone = intent.getStringExtra("phone")
+
+        // Display the retrieved data
+        """
+                First Name: $firstName
+                Last Name: $lastName
+                Age: $age
+                Expertise: $expertise
+                Phone: $phone
+            """.trimIndent().also { binding.textViewData.text = it }
+
+        // Set button listeners
+        binding.buttonOk.setOnClickListener {
+            // Launch a third activity
+            val intent = Intent(this, ThirdActivity::class.java)
+            startActivity(intent)
         }
-    }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyApplicationTheme {
-        Greeting("Android")
+        binding.buttonBack.setOnClickListener {
+            // Go back to the previous activity
+            finish()
+        }
     }
 }
